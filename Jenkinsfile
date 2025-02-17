@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Install the Maven version configured as "M2" and add it to the path.
-        maven "M2"
+        maven "M3"
     }
     environment{
         SONAR_TOKEN = credentials("sonar-token")
@@ -12,7 +12,7 @@ pipeline {
     stages {
            stage('Sonar Scan') {
             steps {
-                sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=org-mahendra_book-api"
+                bat "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=org-mahendra_book-api"
                 
             }
            }
@@ -21,9 +21,9 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 //git 'https://github.com/mahendra-shinde/sample-library-api/'
-                sh "mvn  clean package"
-                // To run Maven on a Windows agent, use
-                //bat "mvn  clean package"
+                bat "mvn  clean package"
+                // To run Maven on a Linux agent, use
+                //sh "mvn  clean package"
                 
             }
 
