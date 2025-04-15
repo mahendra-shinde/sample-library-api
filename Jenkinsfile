@@ -5,9 +5,9 @@ pipeline {
         // Install the Maven version configured as "M2" and add it to the path.
         maven "M3"
     }
-    environment{
+ //   environment{
         //SONAR_TOKEN = credentials("sonar-token")
-    }
+  //  }
 
     stages {
            // stage('Sonar Scan') {
