@@ -21,9 +21,9 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 //git 'https://github.com/mahendra-shinde/sample-library-api/'
-                bat "mvn  clean package"
+                //bat "mvn  clean package"
                 // To run Maven on a Linux agent, use
-                //sh "mvn  clean package"
+                sh "mvn  clean package"
                 
             }
 
