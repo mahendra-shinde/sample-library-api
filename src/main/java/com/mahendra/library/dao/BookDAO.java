@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import com.mahendra.library.models.Book;
-
+import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+@Repository
 public interface BookDAO extends CrudRepository<Book, Integer >{
 
 	Optional<Book> findById(Integer id);

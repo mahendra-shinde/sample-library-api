@@ -5,9 +5,10 @@ import java.util.List;
 import java.util.Optional;
 
 import com.mahendra.library.models.BookIssue;
-
+import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 
+@Repository
 public interface BookIssueDAO extends CrudRepository<BookIssue, Integer> {
 
 	Optional<BookIssue> findById(Integer id);
