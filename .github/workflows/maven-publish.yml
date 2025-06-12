@@ -28,7 +28,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish Artifact
-      uses: actions/upload-artifacts@v4.6.2
+      uses: actions/upload-artifact@v4.6.2
       with:
          name: buildartifacts
          path: target/*.jar
