@@ -45,7 +45,7 @@ public class MemberResource {
 		if(member.isEmpty()){
 			throw new MemberNotFoundException();
 		}
-		return new ResponseEntity<>(member.get(),HttpStatus.FOUND);
+		return new ResponseEntity<>(member.get(),HttpStatus.OK);
 	}
 
 	@PostMapping(produces="application/json", consumes="application/json")
