@@ -12,7 +12,7 @@
 	<artifactId>library-api</artifactId>
 	<version>1.0</version>
 	<name>library-api</name>
-	<description>Spring REST demo project</description>
+	<description>Spring REST demo project </description>
 	<properties>
 		<java.version>11</java.version>
 		  <sonar.organization>org-mahendra</sonar.organization>
