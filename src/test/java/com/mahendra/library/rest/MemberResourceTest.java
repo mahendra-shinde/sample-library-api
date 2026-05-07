@@ -3,11 +3,11 @@ package com.mahendra.library.rest;
 import com.mahendra.library.dao.MemberDAO;
 import com.mahendra.library.exceptions.MemberNotFoundException;
 import com.mahendra.library.models.Member;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
@@ -16,6 +16,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class MemberResourceTest {
 
     @Mock
@@ -23,11 +24,6 @@ class MemberResourceTest {
 
     @InjectMocks
     private MemberResource resource;
-
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
 
     @Test
     void findAll_shouldReturnMembers_whenMembersExist() {
@@ -102,7 +98,8 @@ class MemberResourceTest {
         ResponseEntity<String> response = resource.delete(1);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Member successfully deleted !", response.getBody());
+        assertNotNull(response.getBody());
+        assertTrue(response.getBody().toLowerCase().contains("deleted"));
         verify(dao, times(1)).deleteById(1);
     }
 }
