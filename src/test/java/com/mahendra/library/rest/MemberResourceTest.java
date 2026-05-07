@@ -33,7 +33,7 @@ class MemberResourceTest {
 
         ResponseEntity<List<Member>> response = resource.findAll();
 
-        assertEquals(HttpStatus.FOUND, response.getStatusCode());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(2, response.getBody().size());
     }
 
